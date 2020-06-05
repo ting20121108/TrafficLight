@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,13 +29,48 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         setContentView(R.layout.activity_main);
+
+        Button btnStart = findViewById(R.id.btnStart);
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText et1 = findViewById(R.id.et1);
+                EditText et2 = findViewById(R.id.et2);
+                EditText et3 = findViewById(R.id.et3);
+                String green_str = et1.getText().toString();
+                String yellow_str = et2.getText().toString();
+                String ren_str = et3.getText().toString();
+                if(green_str.equals("") || yellow_str.equals("") || ren_str.equals("")){
+                    Toast.makeText(MainActivity.this, "燈號的秒數不能為空白", Toast.LENGTH_LONG).show();
+                }else if(green_str.equals("0") || yellow_str.equals("0") || ren_str.equals("0")){
+                    Toast.makeText(MainActivity.this, "燈號的秒數不能為0", Toast.LENGTH_LONG).show();
+                }else{
+                    Intent it = new Intent();
+                    it.setClass(MainActivity.this, GameActivity.class);
+                    it.putExtra("greenLight", green_str);
+                    it.putExtra("yellowLight", yellow_str);
+                    it.putExtra("redLight", ren_str);
+                    startActivity(it);
+                    finish();
+                }
+            }
+        });
     }
 
     public void StartGame(View v){
-        Intent it = new Intent();
-        it.setClass(this, GameActivity.class);
-        startActivity(it);
-        finish();
+//        Intent it = new Intent();
+//        EditText et1 = findViewById(R.id.et1);
+//        EditText et2 = findViewById(R.id.et2);
+//        EditText et3 = findViewById(R.id.et3);
+//        String green_str = et1.getText().toString();
+//        String yellow_str = et2.getText().toString();
+//        String ren_str = et3.getText().toString();
+//        it.setClass(this, GameActivity.class);
+//        it.putExtra("greenLight", green_str);
+//        it.putExtra("yellowLight", yellow_str);
+//        it.putExtra("redLight", ren_str);
+//        startActivity(it);
+//        finish();
     }
 
     public void EndApp(View v){
