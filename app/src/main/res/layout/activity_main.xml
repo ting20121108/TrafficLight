@@ -6,12 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl1"
+    <Button
+        android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2"  />
+        android:onClick="StartGame"
+        android:text="開始遊戲"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/gl2"
+        app:layout_constraintEnd_toStartOf="@+id/btnEnd"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="EndApp"
+        android:text="結束系統"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/gl2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnStart" />
+
+    <EditText
+        android:id="@+id/et3"
+        android:layout_width="134dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="請輸入紅燈秒數"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/et2"
+        app:layout_constraintTop_toTopOf="@+id/gl3" />
+
+    <EditText
+        android:id="@+id/et1"
+        android:layout_width="134dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="請輸入綠燈秒數"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/et2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/et2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gl3" />
+
+    <EditText
+        android:id="@+id/et2"
+        android:layout_width="134dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:ems="10"
+        android:hint="請輸入黃燈秒數"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/et3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/et1"
+        app:layout_constraintTop_toTopOf="@+id/gl3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,27 +84,18 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.8" />
 
-    <Button
-        android:id="@+id/btnStart"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="StartGame"
-        android:text="開始遊戲"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/gl2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnEnd"
-        app:layout_constraintHorizontal_chainStyle="packed"/>
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
 
-    <Button
-        android:id="@+id/btnEnd"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="EndApp"
-        android:text="結束系統"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/gl2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnStart" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
